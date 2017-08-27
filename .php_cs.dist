@@ -36,3 +36,5 @@ return PhpCsFixer\Config::create()
     ->setFinder($finder)
     ->setCacheFile(__DIR__.'/var/.php_cs.cache')
 ;
+
+// From symfony/symfony-demo
