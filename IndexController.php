@@ -11,7 +11,7 @@
 
 namespace SymfonyUtil\Component\TemplatingHttpFoundation;
 
-use PhpController\ViewModel\ArrayIndexInterface;
+use ViewModel\ArrayIndexInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
