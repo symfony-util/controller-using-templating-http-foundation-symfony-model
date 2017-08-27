@@ -9,35 +9,32 @@
  * file that was distributed with this source code.
  */
 
-namespace SymfonyUtil\Controller\TemplatingFoundationModel;
+namespace SymfonyUtil\Component\TemplatingHttpFoundation;
 
-use ...\TraversableIndexInterface; // Needs another interface .../HttpFoundation/TraversableIndexInterface
+use SymfonyUtil\Component\HttpFoundation\ArrayIndexInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
 
-class PagerIndexController
+class IndexController
 {
     protected $model
     protected $templating;
     protected $template;
 
     public function __construct(
-        TraversableListInterface $model,
+        ArrayIndexInterface $model,
         EngineInterface $templating,
         $template = 'index.html.twig',
-        $maxPerPage = 15
     )
     {
         $this->model = $model;
         $this->templating = $templating;
         $this->template = $template;
-        $this->maxPerPage = $maxPerPage;
     }
 
-    public function __invoke(
-        Request $request = new Request()
-    )
+    public function __invoke(Request $request = new Request())
     {
-        return new Response($this->templating->render($this->template, ['model' => $this->model->traversableList($request)));
+        return new Response($this->templating->render($this->template, $this->model->index($request)));
     }
 }
