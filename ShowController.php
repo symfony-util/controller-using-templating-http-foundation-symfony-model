@@ -11,21 +11,21 @@
 
 namespace SymfonyUtil\Component\TemplatingHttpFoundation;
 
-use SymfonyUtil\Component\HttpFoundation\ArrayIndexInterface;
+use SymfonyUtil\Component\HttpFoundation\ArrayShowInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
 
-class IndexController
+class ShowController
 {
     protected $model
     protected $templating;
     protected $template;
 
     public function __construct(
-        ArrayIndexInterface $model,
+        ArrayShowInterface $model,
         EngineInterface $templating,
-        $template = 'index.html.twig',
+        $template = 'show.html.twig',
     )
     {
         $this->model = $model;
@@ -33,8 +33,8 @@ class IndexController
         $this->template = $template;
     }
 
-    public function __invoke(Request $request = new Request())
+    public function __invoke($id, Request $request = new Request()) // string $id since php 7.0 (Symfony 4.0 requires php 7.1)
     {
-        return new Response($this->templating->render($this->template, $this->model->index($request)));
+        return new Response($this->templating->render($this->template, $this->model->show($id, $request)));
     }
 }
