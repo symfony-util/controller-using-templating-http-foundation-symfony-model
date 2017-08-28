@@ -26,8 +26,7 @@ class IndexController
         ControllerModelInterface $model,
         EngineInterface $templating,
         $template = 'index.html.twig'
-    )
-    {
+    ) {
         $this->model = $model;
         $this->templating = $templating;
         $this->template = $template;
