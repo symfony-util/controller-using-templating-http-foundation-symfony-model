@@ -17,7 +17,7 @@ use SymfonyUtil\Component\HttpFoundation\NullControllerModel;
 use SymfonyUtil\Component\TemplatingHttpFoundation\IndexController;
 
 /**
- * @covers \SymfonyUtil\Component\HttpFoundation\IndexController
+ * @covers \SymfonyUtil\Component\TemplatingHttpFoundation\IndexController
  */
 final class IndexControllerTest extends TestCase
 {
