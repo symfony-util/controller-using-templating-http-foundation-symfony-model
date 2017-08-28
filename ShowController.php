@@ -14,7 +14,7 @@ namespace SymfonyUtil\Component\TemplatingHttpFoundation;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
-use SymfonyUtil\Component\HttpFoundation\ArrayShowInterface;
+use SymfonyUtil\Component\HttpFoundation\StringControllerModelInterface;
 
 class ShowController
 {
@@ -23,7 +23,7 @@ class ShowController
     protected $template;
 
     public function __construct(
-        ArrayShowInterface $model,
+        StringControllerModelInterface $model,
         EngineInterface $templating,
         $template = 'show.html.twig'
     ) {
