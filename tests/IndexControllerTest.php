@@ -33,6 +33,19 @@ final class IndexControllerTest extends TestCase
         );
     }
 
+    public function testReturnsResponse()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
+        $this->assertInstanceOf(
+            // Response::class, // 5.4 < php
+            'Symfony\Component\HttpFoundation\Response',
+            $controller()
+        );
+    }
+
     public function testReturnsArrayInternal()
     {
         $controller = new IndexController(new NullControllerModel(), new TwigEngine(
