@@ -36,6 +36,7 @@ class IndexController
     {
         // return new Response($this->templating->render($this->template, $this->viewModel->index($this->actionModel->index($request))));
         $model = $this->model;
+
         return new Response($this->templating->render($this->template, $model($request)));
     }
 }
