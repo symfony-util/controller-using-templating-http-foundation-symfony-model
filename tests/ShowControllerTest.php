@@ -16,7 +16,7 @@ use SymfonyUtil\Component\HttpFoundation\NullStringControllerModel;
 use SymfonyUtil\Component\TemplatingHttpFoundation\ShowController;
 
 /**
- * @covers \SymfonyUtil\Component\TemplatingHttpFoundation\IndexController
+ * @covers \SymfonyUtil\Component\TemplatingHttpFoundation\ShowController
  */
 final class ShowControllerTest extends TestCase
 {
