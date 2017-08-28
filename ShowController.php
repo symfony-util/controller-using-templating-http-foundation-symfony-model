@@ -26,8 +26,7 @@ class ShowController
         ArrayShowInterface $model,
         EngineInterface $templating,
         $template = 'show.html.twig'
-    )
-    {
+    ) {
         $this->model = $model;
         $this->templating = $templating;
         $this->template = $template;
