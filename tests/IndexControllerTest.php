@@ -25,7 +25,7 @@ final class IndexControllerTest extends TestCase
     {
         $this->assertInstanceOf(
             // ::class, // 5.4 < php
-            'SymfonyUtil\Component\HttpFoundation\IndexController',
+            'SymfonyUtil\Component\TemplatingHttpFoundation\IndexController',
             new IndexController(new NullControllerModel(), new TwigEngine(
                 new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
                 new TemplateNameParser()
