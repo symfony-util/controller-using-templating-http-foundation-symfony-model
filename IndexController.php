@@ -35,8 +35,8 @@ class IndexController
     public function __invoke(Request $request = null)
     {
         // return new Response($this->templating->render($this->template, $this->viewModel->index($this->actionModel->index($request))));
-        $model = $this->model;
+        // $model = $this->model;
 
-        return new Response($this->templating->render($this->template, $model($request)));
+        return new Response($this->templating->render($this->template, $this->model->__invoke($request)));
     }
 }
