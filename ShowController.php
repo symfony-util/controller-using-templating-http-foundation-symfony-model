@@ -18,7 +18,7 @@ use Symfony\Component\Templating\EngineInterface;
 
 class ShowController
 {
-    protected $model
+    protected $model;
     protected $templating;
     protected $template;
 
