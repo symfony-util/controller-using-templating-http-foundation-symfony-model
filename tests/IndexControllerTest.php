@@ -33,27 +33,75 @@ final class IndexControllerTest extends TestCase
         );
     }
 
-    public function testReturnsArray()
+    public function testReturnsArrayInternal()
     {
         $controller = new IndexController(new NullControllerModel(), new TwigEngine(
             new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
             new TemplateNameParser()
         ));
         $this->assertInternalType('array', $controller->__invoke());
+    }
+
+    public function testReturnsArrayArray()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
         $this->assertSame([], $controller->__invoke());
+    }
+
+    public function testReturnsArray0()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
         $this->assertSame(0, count($controller->__invoke()));
+    }
+
+    public function testReturnsArrayEmpty()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
         $this->assertEmpty($controller->__invoke());
     }
 
-    public function testUnaryReturnsArray()
+    public function testUnaryReturnsArrayType()
     {
         $controller = new IndexController(new NullControllerModel(), new TwigEngine(
             new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
             new TemplateNameParser()
         ));
         $this->assertInternalType('array', $controller->__invoke(new Request()));
+    }
+
+    public function testUnaryReturnsArrayArray()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
         $this->assertSame([], $controller->__invoke(new Request()));
+    }
+
+    public function testUnaryReturnsArray0()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
         $this->assertSame(0, count($controller->__invoke(new Request())));
+    }
+
+    public function testUnaryReturnsArrayEmpty()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
         $this->assertEmpty($controller->__invoke(new Request()));
     }
 }
