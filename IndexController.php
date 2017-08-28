@@ -18,7 +18,7 @@ use SymfonyUtil\Component\HttpFoundation\ControllerModelInterface;
 
 class IndexController
 {
-    protected $model
+    protected $model;
     protected $templating;
     protected $template;
 
