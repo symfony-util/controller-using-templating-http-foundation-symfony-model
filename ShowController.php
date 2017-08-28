@@ -11,10 +11,10 @@
 
 namespace SymfonyUtil\Component\TemplatingHttpFoundation;
 
-use SymfonyUtil\Component\HttpFoundation\ArrayShowInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
+use SymfonyUtil\Component\HttpFoundation\ArrayShowInterface;
 
 class ShowController
 {
