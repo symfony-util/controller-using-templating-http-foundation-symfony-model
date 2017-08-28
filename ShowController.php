@@ -25,7 +25,7 @@ class ShowController
     public function __construct(
         ArrayShowInterface $model,
         EngineInterface $templating,
-        $template = 'show.html.twig',
+        $template = 'show.html.twig'
     )
     {
         $this->model = $model;
