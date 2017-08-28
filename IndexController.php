@@ -25,7 +25,7 @@ class IndexController
     public function __construct(
         ControllerModelInterface $model,
         EngineInterface $templating,
-        $template = 'index.html.twig',
+        $template = 'index.html.twig'
     )
     {
         $this->model = $model;
