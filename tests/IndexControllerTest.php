@@ -39,9 +39,21 @@ final class IndexControllerTest extends TestCase
             new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
             new TemplateNameParser()
         ));
+        $this->assertInternalType('array', $controller->__invoke());
+        $this->assertSame([], $controller->__invoke());
+        $this->assertSame(0, count($controller->__invoke()));
+        $this->assertEmpty($controller->__invoke());
+    }
+
+    public function testUnaryReturnsArray()
+    {
+        $controller = new IndexController(new NullControllerModel(), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
         $this->assertInternalType('array', $controller->__invoke(new Request()));
         $this->assertSame([], $controller->__invoke(new Request()));
         $this->assertSame(0, count($controller->__invoke(new Request())));
-        $this->assertEmpty((new NullControllerModel())->__invoke(new Request()));
+        $this->assertEmpty($controller->__invoke(new Request()));
     }
 }
