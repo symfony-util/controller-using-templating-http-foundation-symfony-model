@@ -11,34 +11,31 @@
 
 namespace SymfonyUtil\Component\TemplatingHttpFoundation;
 
-use ViewModel\ArrayIndexInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
-use SymfonyUtil\Component\HttpFoundation\IndexInterface;
+use SymfonyUtil\Component\HttpFoundation\ControllerModelInterface;
 
 class IndexController
 {
-    protected $actionModel
-    protected $viewModel
+    protected $model
     protected $templating;
     protected $template;
 
     public function __construct(
-        IndexInterface $ActionModel,
-        ArrayIndexInterface $viewModel,
+        ControllerModelInterface $model,
         EngineInterface $templating,
         $template = 'index.html.twig',
     )
     {
-        $this->actionModel = $actionModel;
-        $this->viewModel = $viewModel;
+        $this->model = $model;
         $this->templating = $templating;
         $this->template = $template;
     }
 
     public function __invoke(Request $request = new Request())
     {
-        return new Response($this->templating->render($this->template, $this->viewModel->index($this->actionModel->index($request))));
+        // return new Response($this->templating->render($this->template, $this->viewModel->index($this->actionModel->index($request))));
+        return new Response($this->templating->render($this->template, $this->model($request)));
     }
 }
