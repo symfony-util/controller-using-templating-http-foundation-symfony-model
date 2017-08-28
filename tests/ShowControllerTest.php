@@ -26,7 +26,7 @@ final class ShowControllerTest extends TestCase
             // ::class, // 5.4 < php
             'SymfonyUtil\Component\TemplatingHttpFoundation\ShowController',
             new ShowController(new NullStringControllerModel(), new TwigEngine(
-                new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+                new Twig_Environment(new Twig_Loader_Array(['show.html.twig' => 'Hello World!'])),
                 new TemplateNameParser()
             ))
         );
@@ -35,7 +35,7 @@ final class ShowControllerTest extends TestCase
     public function testReturnsResponse()
     {
         $controller = new ShowController(new NullStringControllerModel(), new TwigEngine(
-            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new Twig_Environment(new Twig_Loader_Array(['show.html.twig' => 'Hello World!'])),
             new TemplateNameParser()
         ));
         $this->assertInstanceOf(
