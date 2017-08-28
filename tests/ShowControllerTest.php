@@ -18,14 +18,14 @@ use SymfonyUtil\Component\TemplatingHttpFoundation\ShowController;
 /**
  * @covers \SymfonyUtil\Component\TemplatingHttpFoundation\IndexController
  */
-final class IndexControllerTest extends TestCase
+final class ShowControllerTest extends TestCase
 {
     public function testCanBeCreated()
     {
         $this->assertInstanceOf(
             // ::class, // 5.4 < php
             'SymfonyUtil\Component\TemplatingHttpFoundation\ShowController',
-            new IndexController(new NullControllerModel(), new TwigEngine(
+            new ShowController(new NullControllerModel(), new TwigEngine(
                 new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
                 new TemplateNameParser()
             ))
