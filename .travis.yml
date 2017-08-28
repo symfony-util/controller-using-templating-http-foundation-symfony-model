@@ -40,7 +40,6 @@ matrix:
         - SENSIO_SECURITY=`true`
     - php: 7.1
       env:
-        - SYMFONY_VERSION="^3.3 || ^4.0"
         - PHPUNIT=phpunit
         - TEST_LINT=`true`
         - PHP_CS_FIXER=`true`
