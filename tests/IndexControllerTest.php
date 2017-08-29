@@ -52,7 +52,7 @@ final class IndexControllerTest extends TestCase
             new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
             new TemplateNameParser()
         ));
-        $response = $controller=();
+        $response = $controller();
         $this->assertInstanceOf(
             // Response::class, // 5.4 < php
             'Symfony\Component\HttpFoundation\Response',
