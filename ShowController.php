@@ -34,6 +34,10 @@ class ShowController
 
     public function __invoke($id, Request $request = null) // string $id since php 7.0 (Symfony 4.0 requires php 7.1)
     {
-        return new Response($this->templating->render($this->template, ($this->model->__invoke($id, $request))->getParameters()));
+        // return new Response($this->templating->render($this->template, ($this->model->__invoke($id, $request))->getParameters()));
+        // Error with php 5.6, but OK for newer ones.
+        $responseParameters = $this->model->__invoke($id, $request);
+
+        return new Response($this->templating->render($this->template, $responseParameters->getParameters()));
     }
 }
