@@ -44,4 +44,27 @@ final class IndexControllerTest extends TestCase
             $controller()
         );
     }
+
+    public function testRedirectResponseReturnsUrl()
+    {
+        $example = 'http://example.org/';
+        $controller = new IndexController(new NullControllerModel(new RedirectResponse($example)), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
+        $response = $controller=();
+        $this->assertInstanceOf(
+            // Response::class, // 5.4 < php
+            'Symfony\Component\HttpFoundation\Response',
+            $controller()
+        );
+        $this->assertInstanceOf(
+            // ::class, // 5.4 < php
+            'Symfony\Component\HttpFoundation\Response',
+            $response
+        );
+        $url = $response->getTargetUrl();
+        $this->assertInternalType('string', $url);
+        $this->assertSame($example, $url);
+    }
 }
