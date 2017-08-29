@@ -15,7 +15,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
 use SymfonyUtil\Component\HttpFoundation\ControllerModelInterface;
-use SymfonyUtil\Component\HttpFoundation\ResponseParameters;
 
 class IndexController
 {
