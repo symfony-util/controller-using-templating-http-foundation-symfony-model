@@ -53,7 +53,7 @@ class IndexController
         // ...
 
         $response = $result->getResponse();
-        if ($response)) {
+        if ($response) {
             $response->setContent($this->templating->render($this->template, $result->getParameters()));
 
             return $response;
