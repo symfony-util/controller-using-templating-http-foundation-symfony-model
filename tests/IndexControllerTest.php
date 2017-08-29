@@ -11,6 +11,7 @@
 
 use PHPUnit\Framework\TestCase;
 use Symfony\Bridge\Twig\TwigEngine;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Templating\TemplateNameParser;
 use SymfonyUtil\Component\HttpFoundation\NullControllerModel;
 use SymfonyUtil\Component\TemplatingHttpFoundation\IndexController;
