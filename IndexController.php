@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
 use SymfonyUtil\Component\HttpFoundation\ControllerModelInterface;
+use SymfonyUtil\Component\HttpFoundation\ResponseParameters;
 
 class IndexController
 {
@@ -37,6 +38,7 @@ class IndexController
         $result = $this->model->__invoke($request);
         // Impired by:
         // https://github.com/symfony/symfony/blob/v3.3.6/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerTrait.php
+        /*
         if (array_key_exists('redirect', $result)) {
             $redirect = $result['redirect'];
             $status = 302;
@@ -46,16 +48,17 @@ class IndexController
 
             return new RedirectResponse($redirect['url'], $status);
         }
+        */
         // redirectToRoute needs the router
         // ...
 
-        if (array_key_exists('response', $result)) {
-            $response = $result['response'];
-            $response->setContent($this->templating->render($this->template, $result['parameters']));
+        $response = $result->getResponse();
+        if ($response)) {
+            $response->setContent($this->templating->render($this->template, $result->getParameters()));
 
             return $response;
         }
 
-        return new Response($this->templating->render($this->template, $result['parameters']));
+        return new Response($this->templating->render($this->template, $result->getParameters()));
     }
 }
