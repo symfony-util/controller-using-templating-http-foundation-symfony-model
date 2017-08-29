@@ -37,20 +37,19 @@ class IndexController
         $result = $this->model->__invoke($request);
         // Impired by:
         // https://github.com/symfony/symfony/blob/v3.3.6/src/Symfony/Bundle/FrameworkBundle/Controller/ControllerTrait.php
-        if (array_key_exists('redirect', $result))
-        {
+        if (array_key_exists('redirect', $result)) {
             $redirect = $result['redirect'];
             $status = 302;
-            if (array_key_exists('status', $redirect))
+            if (array_key_exists('status', $redirect)) {
                 $status = $redirect['status'];
+            }
 
             return new RedirectResponse($redirect['url'], $status);
         }
         // redirectToRoute needs the router
         // ...
 
-        if (array_key_exists('response', $result))
-        {
+        if (array_key_exists('response', $result)) {
             $response = $result['response'];
             $response->setContent($this->templating->render($this->template, $result['parameters']));
 
