@@ -81,7 +81,7 @@ final class IndexControllerTest extends TestCase
             new NullControllerModel(
                 new RedirectResponse(
                     (new UrlGenerator(
-                        new RouteCollectionBuilder()->addRoute(new Route($example), 'index')->build(),
+                        (new RouteCollectionBuilder())->addRoute(new Route($example), 'index')->build(),
                         new RequestContext()
                     ))->generate('index')
                 )
