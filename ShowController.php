@@ -37,6 +37,7 @@ class ShowController
         // return new Response($this->templating->render($this->template, ($this->model->__invoke($id, $request))->getParameters()));
         // Error with php 5.6, but OK for newer ones.
         $responseParameters = $this->model->__invoke($id, $request);
+        // TODO update from IndexController!!
 
         return new Response($this->templating->render($this->template, $responseParameters->getParameters()));
     }
