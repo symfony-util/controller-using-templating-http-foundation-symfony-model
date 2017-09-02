@@ -115,4 +115,42 @@ final class IndexControllerTest extends TestCase
         $this->assertInternalType('string', $url);
         $this->assertSame($example, $url);
     }
+
+    public function testRouteRedirectResponseReturnsUrlWithRedirectToRoute()
+    {
+        $example = '/example';
+        $controller = new IndexController(
+            new NullControllerModel(
+                (new RedirectToRoute(
+                    new UrlGenerator(
+                        (new RouteCollectionBuilder())->addRoute(new Route($example), 'index')->build(),
+                        new RequestContext()
+                    )
+                ))->__invoke('index')
+            ),
+            new TwigEngine(
+                new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+                new TemplateNameParser()
+            )
+        );
+        $this->assertInstanceOf(
+            // ::class, // 5.4 < php
+            'SymfonyUtil\Component\TemplatingHttpFoundation\IndexController',
+            $controller
+        );
+        $response = $controller();
+        $this->assertInstanceOf(
+            // ::class, // 5.4 < php
+            'Symfony\Component\HttpFoundation\Response',
+            $response
+        );
+        $this->assertInstanceOf(
+            // ::class, // 5.4 < php
+            'Symfony\Component\HttpFoundation\RedirectResponse',
+            $response
+        );
+        $url = $response->getTargetUrl();
+        $this->assertInternalType('string', $url);
+        $this->assertSame($example, $url);
+    }
 }
