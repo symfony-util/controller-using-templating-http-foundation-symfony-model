@@ -18,6 +18,7 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symfony\Component\Templating\TemplateNameParser;
 use SymfonyUtil\Component\HttpFoundation\NullControllerModel;
+use SymfonyUtil\Component\RoutingHttpFoundation\Generator\RedirectToRoute;
 use SymfonyUtil\Component\TemplatingHttpFoundation\IndexController;
 
 /**
