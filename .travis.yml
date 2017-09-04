@@ -61,6 +61,9 @@ matrix:
     - php: 5.5 # needs older phpunit
     - php: 7.2
     - php: nightly
+    - env: SYMFONY_VERSION="2.3.*"
+    - env: SYMFONY_VERSION="2.7.*"
+    - env: SYMFONY_VERSION="2.8.*"
 
 before_install:
   - echo $PHPUNIT
