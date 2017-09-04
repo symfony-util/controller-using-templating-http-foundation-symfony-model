@@ -5,13 +5,8 @@ language: php
 cache:
   directories:
     - $HOME/.composer/cache/files
-php:
-  - 5.6
-  - 7.0
-  - 7.1
-  - 7.2
-  - nightly
-env: # important!
+
+# env: # important!
 matrix:
   fast_finish: true
   include:
@@ -63,15 +58,32 @@ matrix:
         - TEST_LINT=`true`
         - SENSIO_SECURITY=`true`
   allow_failures:
-    - env: SYMFONY_VERSION="2.3.*"
-    - env: SYMFONY_VERSION="2.7.*"
-    - env: SYMFONY_VERSION="2.8.*"
-    - env: SYMFONY_VERSION="^4.0@dev"
+    - php: 7.2
+    - php: nightly
+    - php: 5.6
+      env:
+        - SYMFONY_VERSION="2.3.*"
+        - PHPUNIT=phpunit-4.8
+        - TEST_LINT=`true`
+    - php: 5.6
+      env:
+        - SYMFONY_VERSION="2.7.*"
+        - PHPUNIT=phpunit-4.8
+        - TEST_LINT=`true`
+        - SENSIO_SECURITY=`true`
+    - php: 5.6
+      env:
+        - SYMFONY_VERSION="2.8.*"
+        - PHPUNIT=phpunit-4.8
+        - TEST_LINT=`true`
+        - SENSIO_SECURITY=`true`
+    # - env: SYMFONY_VERSION="2.3.*"
+    # - env: SYMFONY_VERSION="2.7.*"
+    # - env: SYMFONY_VERSION="2.8.*"
+    # - env: SYMFONY_VERSION="^4.0@dev"
     # - php: 5.4
     # - php: 5.5 # needs older phpunit
     # - php: 5.6
-    # - php: 7.2
-    # - php: nightly
 
 before_install:
   - echo $PHPUNIT
