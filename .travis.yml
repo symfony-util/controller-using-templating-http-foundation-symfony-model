@@ -77,10 +77,6 @@ matrix:
         - PHPUNIT=phpunit-4.8
         - TEST_LINT=`true`
         - SENSIO_SECURITY=`true`
-    # - env: SYMFONY_VERSION="2.3.*"
-    # - env: SYMFONY_VERSION="2.7.*"
-    # - env: SYMFONY_VERSION="2.8.*"
-    # - env: SYMFONY_VERSION="^4.0@dev"
     # - php: 5.4
     # - php: 5.5 # needs older phpunit
     # - php: 5.6
