@@ -17,6 +17,7 @@
         "symfony/routing": "^2.0 || ^3.0 || ^4.0",
         "symfony/twig-bridge": "^2.0 || ^3.0 || ^4.0",
         "symfony/var-dumper": "^2.0 || ^3.0 || ^4.0",
+        "symfony-util/controller-model-using-http-foundation": "^0.1.0@dev",
         "symfony-util/controller-model-using-http-foundation-po-interface": "^0.1.0@dev",
         "symfony-util/routing-http-foundation": "^0.1.0@dev",
         "twig/twig": "^1.0 || ^2.0"
