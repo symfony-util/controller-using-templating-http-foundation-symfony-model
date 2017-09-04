@@ -18,6 +18,9 @@ use Symfony\Component\Routing\Route;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 use Symfony\Component\Templating\TemplateNameParser;
 use SymfonyUtil\Component\HttpFoundation\NullControllerModel;
+use SymfonyUtil\Component\HttpFoundationPOInterface\ControllerModel;
+use SymfonyUtil\Component\HttpFoundationPOInterface\NullActionModel;
+use SymfonyUtil\Component\HttpFoundationPOInterface\NullViewModel;
 use SymfonyUtil\Component\RoutingHttpFoundation\Generator\RedirectToRoute;
 use SymfonyUtil\Component\TemplatingHttpFoundation\IndexController;
 
@@ -153,5 +156,30 @@ final class IndexControllerTest extends TestCase
         $url = $response->getTargetUrl();
         $this->assertInternalType('string', $url);
         $this->assertSame($example, $url);
+    }
+
+    public function testCanBeCreatedWithControllerModel()
+    {
+        $this->assertInstanceOf(
+            // ::class, // 5.4 < php
+            'SymfonyUtil\Component\TemplatingHttpFoundation\IndexController',
+            new IndexController(new ControllerModel(new NullActionModel(), new NullViewModel()), new TwigEngine(
+                new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+                new TemplateNameParser()
+            ))
+        );
+    }
+
+    public function testReturnsResponseWithControllerModel()
+    {
+        $controller = new IndexController(new ControllerModel(new NullActionModel(), new NullViewModel()), new TwigEngine(
+            new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+            new TemplateNameParser()
+        ));
+        $this->assertInstanceOf(
+            // Response::class, // 5.4 < php
+            'Symfony\Component\HttpFoundation\Response',
+            $controller()
+        );
     }
 }
