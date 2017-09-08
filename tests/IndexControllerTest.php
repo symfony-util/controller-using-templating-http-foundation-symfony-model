@@ -196,7 +196,7 @@ final class IndexControllerTest extends TestCase
                             (new RouteCollectionBuilder())->addRoute(new Route($example), 'index')->build(),
                             new RequestContext()
                         )
-                    )
+                    ),
                     new NullActionModel(),
                     new NullViewModel()
                 ),
