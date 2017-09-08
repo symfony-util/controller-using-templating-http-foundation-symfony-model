@@ -21,6 +21,7 @@ use SymfonyUtil\Component\HttpFoundation\NullControllerModel;
 use SymfonyUtil\Component\HttpFoundationPOInterface\ControllerModel;
 use SymfonyUtil\Component\HttpFoundationPOInterface\NullActionModel;
 use SymfonyUtil\Component\HttpFoundationPOInterface\NullViewModel;
+use SymfonyUtil\Component\HttpFoundationPOInterface\ReRouteControllerModel;
 use SymfonyUtil\Component\RoutingHttpFoundation\Generator\RedirectToRoute;
 use SymfonyUtil\Component\TemplatingHttpFoundation\IndexController;
 
@@ -180,6 +181,30 @@ final class IndexControllerTest extends TestCase
             // Response::class, // 5.4 < php
             'Symfony\Component\HttpFoundation\Response',
             $controller()
+        );
+    }
+
+    public function testCanBeCreatedWithReRouteControllerModel()
+    {
+        $this->assertInstanceOf(
+            // ::class, // 5.4 < php
+            'SymfonyUtil\Component\TemplatingHttpFoundation\IndexController',
+            new IndexController(
+                new ReRouteControllerModel(
+                    new RedirectToRoute(
+                        new UrlGenerator(
+                            (new RouteCollectionBuilder())->addRoute(new Route($example), 'index')->build(),
+                            new RequestContext()
+                        )
+                    )
+                    new NullActionModel(),
+                    new NullViewModel()
+                ),
+                new TwigEngine(
+                    new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+                    new TemplateNameParser()
+                )
+            )
         );
     }
 }
