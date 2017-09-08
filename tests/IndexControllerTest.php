@@ -207,4 +207,29 @@ final class IndexControllerTest extends TestCase
             )
         );
     }
+
+    public function testReturnsResponseWithReRoutControllerModel()
+    {
+        $controller = new IndexController(
+            new ReRouteControllerModel(
+                new RedirectToRoute(
+                    new UrlGenerator(
+                        (new RouteCollectionBuilder())->addRoute(new Route($example), 'index')->build(),
+                        new RequestContext()
+                    )
+                ),
+                new NullActionModel(),
+                new NullViewModel()
+            ),
+            new TwigEngine(
+                new Twig_Environment(new Twig_Loader_Array(['index.html.twig' => 'Hello World!'])),
+                new TemplateNameParser()
+            )
+        );
+        $this->assertInstanceOf(
+            // Response::class, // 5.4 < php
+            'Symfony\Component\HttpFoundation\Response',
+            $controller()
+        );
+    }
 }
