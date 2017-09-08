@@ -186,6 +186,7 @@ final class IndexControllerTest extends TestCase
 
     public function testCanBeCreatedWithReRouteControllerModel()
     {
+        $example = '/example';
         $this->assertInstanceOf(
             // ::class, // 5.4 < php
             'SymfonyUtil\Component\TemplatingHttpFoundation\IndexController',
@@ -210,6 +211,7 @@ final class IndexControllerTest extends TestCase
 
     public function testReturnsResponseWithReRoutControllerModel()
     {
+        $example = '/example';
         $controller = new IndexController(
             new ReRouteControllerModel(
                 new RedirectToRoute(
