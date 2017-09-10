@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Templating\EngineInterface;
 use SymfonyUtil\Component\HttpFoundation\ControllerModelInterface;
 
-class IndexController
+class IndexController // To be renamed TemplatingController
 {
     protected $model;
     protected $templating;
