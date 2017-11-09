@@ -47,13 +47,13 @@ matrix:
         - SENSIO_SECURITY=`true`
     - php: 7.2
       env:
-        - SYMFONY_VERSION="^4.0@dev"
+        - SYMFONY_VERSION="^3.4@beta"
         - PHPUNIT=phpunit
         - TEST_LINT=`true`
         - SENSIO_SECURITY=`true`
     - php: nightly
       env:
-        - SYMFONY_VERSION="^4.0@dev"
+        - SYMFONY_VERSION="^4.0@beta"
         - PHPUNIT=phpunit
         - TEST_LINT=`true`
         - SENSIO_SECURITY=`true`
