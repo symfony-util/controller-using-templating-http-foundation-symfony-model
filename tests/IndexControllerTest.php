@@ -124,6 +124,9 @@ final class IndexControllerTest extends TestCase
         $this->assertSame($example, $url);
     }
 
+    /**
+     * @requires function RouteCollectionBuilder::addRoute
+     */
     public function testRouteRedirectResponseReturnsUrlWithRedirectToRoute()
     {
         $example = '/example';
@@ -187,6 +190,9 @@ final class IndexControllerTest extends TestCase
         );
     }
 
+    /**
+     * @requires function RouteCollectionBuilder::addRoute
+     */
     public function testCanBeCreatedWithReRouteControllerModel()
     {
         $example = '/example';
@@ -212,6 +218,9 @@ final class IndexControllerTest extends TestCase
         );
     }
 
+    /**
+     * @requires function RouteCollectionBuilder::addRoute
+     */
     public function testReturnsResponseWithReRoutControllerModel()
     {
         $example = '/example';
