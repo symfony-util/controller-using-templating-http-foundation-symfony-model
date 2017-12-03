@@ -83,6 +83,9 @@ final class IndexControllerTest extends TestCase
         $this->assertSame($example, $url);
     }
 
+    /**
+     * @requires function RouteCollectionBuilder::addRoute
+     */
     public function testRouteRedirectResponseReturnsUrl()
     {
         $example = '/example';
