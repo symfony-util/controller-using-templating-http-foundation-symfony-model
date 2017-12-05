@@ -50,6 +50,13 @@ matrix:
         - SYMFONY_VERSION="^3.4@beta"
         - PHPUNIT=phpunit
         - TEST_LINT=`true`
+        - PHP_CS_FIXER=`true`
+        - SENSIO_SECURITY=`true`
+    - php: 7.2
+      env:
+        - PHPUNIT=phpunit
+        - TEST_LINT=`true`
+        - PHP_CS_FIXER=`true`
         - SENSIO_SECURITY=`true`
     - php: nightly
       env:
