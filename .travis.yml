@@ -35,13 +35,13 @@ matrix:
         - SENSIO_SECURITY=`true`
     - php: 7.0
       env:
-        - PHPUNIT=phpunit
+        - PHPUNIT=phpunit-6.5
         - TEST_LINT=`true`
         - PHP_CS_FIXER=`true`
         - SENSIO_SECURITY=`true`
     - php: 7.1
       env:
-        - PHPUNIT=phpunit
+        - PHPUNIT=phpunit-7.5
         - TEST_LINT=`true`
         - PHP_CS_FIXER=`true`
         - SENSIO_SECURITY=`true`
